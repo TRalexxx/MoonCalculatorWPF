@@ -1,0 +1,110 @@
+﻿<Window x:Class="MoonCalc.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MoonCalc"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="460" Width="800">
+
+    <Grid Background="#FF343C3F">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.Resources>
+                <Style
+      x:Key="CustomCalendarDayButton"
+      TargetType="CalendarDayButton"
+      BasedOn="{StaticResource MaterialDesignCalendarDayButton}">
+                    <Setter
+        Property="materialDesign:CalendarAssist.SelectionColor"
+        Value="#B2F39B" />
+                    <Setter
+        Property="materialDesign:CalendarAssist.SelectionForegroundColor"
+        Value="Black" />
+                </Style>
+                <Style
+      x:Key="CustomCalendarButton"
+      TargetType="CalendarButton"
+      BasedOn="{StaticResource MaterialDesignCalendarButton}">
+                    <Setter
+        Property="materialDesign:CalendarAssist.SelectionColor"
+        Value="#B2F39B" />
+                    <Setter
+        Property="materialDesign:CalendarAssist.SelectionForegroundColor"
+        Value="Black" />
+                </Style>
+            </Grid.Resources>
+            <Calendar x:Name="datePicker"
+            materialDesign:CalendarAssist.HeaderBackground="#A2E9FF"
+            materialDesign:CalendarAssist.HeaderForeground="Black"
+            Background="#343C3F"
+            CalendarButtonStyle="{StaticResource CustomCalendarButton}"
+            CalendarDayButtonStyle="{StaticResource CustomCalendarDayButton}"
+            Foreground="White" />
+        </Grid>
+        <Button Grid.Row="1"
+            Width="150"
+            Content="_Calculate"
+            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+            Style="{StaticResource MaterialDesignRaisedButton}" Background="#FFA2E9FF" Foreground="Black" Margin="20" Click="Button_Click" />
+        <Grid Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock x:Name="moonAgeDaysTB" Margin="20"
+                Style="{StaticResource MaterialDesignHeadline5TextBlock}" Foreground="#FFA2E9FF"
+                Text="Moon age (days): " TextWrapping="Wrap" />
+            <TextBlock x:Name="moonAgePercTB" Grid.Column="1" Margin="20"
+                Style="{StaticResource MaterialDesignHeadline5TextBlock}" Foreground="#FFA2E9FF"
+                Text="Moon age (percentage of full): " TextWrapping="Wrap" />
+            <TextBlock x:Name="moonPhaseTB" Grid.Row="1" Margin="20"
+                Style="{StaticResource MaterialDesignHeadline5TextBlock}" Foreground="#FFA2E9FF"
+                Text="Moon phase: " TextWrapping="Wrap" />
+            <TextBlock x:Name="zodiacTB" Grid.Row="1" Grid.Column="1" Margin="20"
+                Style="{StaticResource MaterialDesignHeadline5TextBlock}" Foreground="#FFA2E9FF"
+                Text="Zodiac: " TextWrapping="Wrap" />
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="1" Background="#FF134C55">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Image x:Name="pic1" Source="/1.png" Visibility="Hidden"/>
+            <Image x:Name="pic2" Grid.Column="1" Source="/2.PNG" Visibility="Hidden"/>
+            <Image x:Name="pic3" Grid.Column="2" Source="/3.png" Visibility="Hidden"/>
+            <Image x:Name="pic4" Grid.Column="3" Source="/4.png" Visibility="Hidden"/>
+            <Image x:Name="pic5" Grid.Column="4" Source="/5.png" Visibility="Hidden"/>
+            <Image x:Name="pic6" Grid.Column="5" Source="/6.png" Visibility="Hidden"/>
+            <Image x:Name="pic7" Grid.Column="6" Source="/7.png" Visibility="Hidden"/>
+            <Image x:Name="pic8" Grid.Column="7" Source="/8.png" Visibility="Hidden"/>
+
+        </Grid>
+    </Grid>
+
+</Window>
